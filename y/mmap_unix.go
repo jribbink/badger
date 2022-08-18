@@ -1,4 +1,5 @@
-// +build !windows,!darwin,!plan9
+//go:build !windows && !darwin && !plan9 && !wasm && !js
+// +build !windows,!darwin,!plan9,!wasm,!js
 
 /*
  * Copyright 2019 Dgraph Labs, Inc. and Contributors

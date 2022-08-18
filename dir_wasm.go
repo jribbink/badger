@@ -1,5 +1,5 @@
-//go:build !windows && !plan9 && !wasm
-// +build !windows,!plan9,!wasm
+//go:build wasm
+// +build wasm
 
 /*
  * Copyright 2017 Dgraph Labs, Inc. and Contributors
@@ -26,7 +26,6 @@ import (
 	"path/filepath"
 
 	"github.com/pkg/errors"
-	"golang.org/x/sys/unix"
 )
 
 // directoryLockGuard holds a lock on a directory and a pid file inside.  The pid file isn't part
@@ -55,7 +54,7 @@ func acquireDirectoryLock(dirPath string, pidFileName string, readOnly bool) (
 	if err != nil {
 		return nil, errors.Wrapf(err, "cannot open directory %q", dirPath)
 	}
-	opts := unix.LOCK_EX | unix.LOCK_NB
+	/*opts := unix.LOCK_EX | unix.LOCK_NB
 	if readOnly {
 		opts = unix.LOCK_SH | unix.LOCK_NB
 	}
@@ -66,7 +65,7 @@ func acquireDirectoryLock(dirPath string, pidFileName string, readOnly bool) (
 		return nil, errors.Wrapf(err,
 			"Cannot acquire directory lock on %q.  Another process is using this Badger database.",
 			dirPath)
-	}
+	}*/
 
 	if !readOnly {
 		// Yes, we happily overwrite a pre-existing pid file.  We're the

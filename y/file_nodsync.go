@@ -1,4 +1,4 @@
-// +build dragonfly freebsd windows plan9
+// +build dragonfly freebsd windows plan9 wasm js
 
 /*
  * Copyright 2017 Dgraph Labs, Inc. and Contributors

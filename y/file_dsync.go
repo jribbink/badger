@@ -1,4 +1,5 @@
-// +build !dragonfly,!freebsd,!windows,!plan9
+//go:build !dragonfly && !freebsd && !windows && !plan9 && !wasm && !js
+// +build !dragonfly,!freebsd,!windows,!plan9,!wasm,!js
 
 /*
  * Copyright 2017 Dgraph Labs, Inc. and Contributors
